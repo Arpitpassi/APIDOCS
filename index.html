@@ -475,8 +475,20 @@ Recommended: WAV for best quality</pre>
             <div class="code-block">
                 <pre id="training">[
   {
-    "input": "User message example",
-    "output": "AI response example"
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant."
+      },
+      {
+        "role": "user",
+        "content": "Hi! My name is Arpit."
+      },
+      {
+        "role": "assistant",
+        "content": "Hey Arpit, nice to meet you! What can I do for you today?"
+      }
+    ]
   }
 ]</pre>
             </div>
