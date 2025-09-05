@@ -147,16 +147,24 @@
             background: #C3CB9C;
             color: #2c2c2c;
             border: none;
-            padding: 4px 8px;
+            padding: 6px;
             border-radius: 3px;
-            font-size: 12px;
             cursor: pointer;
-            font-weight: 600;
             margin-left: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
         }
 
         .copy-button:hover {
             background: #A8B084;
+        }
+
+        .copy-button svg {
+            width: 14px;
+            height: 14px;
         }
 
         .method {
@@ -177,19 +185,6 @@
             margin: 0 0 6px 0;
             display: flex;
             align-items: center;
-        }
-
-        .navigation-hint {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(195, 203, 156, 0.9);
-            color: #2c2c2c;
-            padding: 12px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            z-index: 1000;
         }
 
         @media (max-width: 768px) {
@@ -237,14 +232,14 @@
     <!-- Slide 1: Speech to Text -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url1')">Copy</button></div>
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url1')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="url1">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~speech-to-text@1.0/transcribe/infer~wasi-nn@1.0?model-id=gemma&session_id=johncena --data-binary @audiofile.wav</pre>
             </div>
 
             <div class="section-title">Method: <span class="method">POST</span></div>
 
-            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request1')">Copy</button></div>
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request1')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="request1">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~speech-to-text@1.0/transcribe/infer~wasi-nn@1.0?model-id=gemma&session_id=johncena" \
   --data-binary @1.wav</pre>
@@ -268,14 +263,14 @@
     <!-- Slide 2: Text to Speech -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url2')">Copy</button></div>
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url2')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="url2">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~text-to-speech@1.0/generate?session_id=johncena -d '{"result": "text content"}'</pre>
             </div>
 
             <div class="section-title">Method: <span class="method">POST</span></div>
 
-            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request2')">Copy</button></div>
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request2')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="request2">curl -X POST 'http://YOUR_SERVER_ADDRESS:YOUR_PORT/~text-to-speech@1.0/generate?session_id=johncena' \
   -H "Content-Type: application/json" \
@@ -283,7 +278,7 @@
   --output response.wav</pre>
             </div>
 
-            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input2')">Copy</button></div>
+            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input2')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="input2">{
   "result": "Text to convert to speech"
@@ -306,28 +301,28 @@
     <!-- Slide 3: Start Conversation -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url3')">Copy</button></div>
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url3')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="url3">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~wasi-nn@1.0/infer?lora_id=my_training_session&session_id=user_123 -d '{"transcription": "your message"}'</pre>
             </div>
 
             <div class="section-title">Method: <span class="method">POST</span></div>
 
-            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request3')">Copy</button></div>
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request3')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="request3">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~wasi-nn@1.0/infer?lora_id=my_training_session&session_id=user_123" \
   -H "Content-Type: application/json" \
   -d '{"transcription": "who are you?"}'</pre>
             </div>
 
-            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input3')">Copy</button></div>
+            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input3')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="input3">{
   "transcription": "Your message or question here"
 }</pre>
             </div>
 
-            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output3')">Copy</button></div>
+            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output3')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="output3">{
   "result": "AI response text",
@@ -351,21 +346,21 @@
     <!-- Slide 4: Train Custom Model -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url4')">Copy</button></div>
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url4')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="url4">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/train?session_id=my_training_session&num_epochs=10 -d @training_data.json</pre>
             </div>
 
             <div class="section-title">Method: <span class="method">POST</span></div>
 
-            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request4')">Copy</button></div>
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request4')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="request4">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/train?session_id=my_training_session&num_epochs=10" \
   -H "Content-Type: application/json" \
   -d @training_data.json</pre>
             </div>
 
-            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input4')">Copy</button></div>
+            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input4')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="input4">[
   {
@@ -379,7 +374,7 @@
 ]</pre>
             </div>
 
-            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output4')">Copy</button></div>
+            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output4')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="output4">{
   "status": "success",
@@ -405,20 +400,20 @@
     <!-- Slide 5: Convert Model -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url5')">Copy</button></div>
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url5')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="url5">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/convert</pre>
             </div>
 
             <div class="section-title">Method: <span class="method">POST</span></div>
 
-            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request5')">Copy</button></div>
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request5')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="request5">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/convert?session_id=my_training_session" \
   -H "Content-Type: application/json"</pre>
             </div>
 
-            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output5')">Copy</button></div>
+            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output5')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="output5">{
   "status": "success",
@@ -441,14 +436,14 @@
     <!-- Slide 6: Download Model -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url6')">Copy</button></div>
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url6')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="url6">http://YOUR_SERVER_ADDRESS:10000/~training@1.0/download</pre>
             </div>
 
             <div class="section-title">Method: <span class="method">POST</span></div>
 
-            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request6')">Copy</button></div>
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request6')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="request6">curl -X POST "http://YOUR_SERVER_ADDRESS:10000/~training@1.0/download?session_id=my_training_session" \
   --output my_custom_model.gguf</pre>
@@ -470,13 +465,13 @@
     <!-- Data Formats Section -->
     <section class="slide">
         <div class="slide-code">
-            <div class="section-title">Audio Files: <button class="copy-button" onclick="copyToClipboard(this, 'audio')">Copy</button></div>
+            <div class="section-title">Audio Files: <button class="copy-button" onclick="copyToClipboard(this, 'audio')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="audio">Supported formats: WAV, MP3
 Recommended: WAV for best quality</pre>
             </div>
 
-            <div class="section-title">Training Data Example: <button class="copy-button" onclick="copyToClipboard(this, 'training')">Copy</button></div>
+            <div class="section-title">Training Data Example: <button class="copy-button" onclick="copyToClipboard(this, 'training')"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg></button></div>
             <div class="code-block">
                 <pre id="training">[
   {
@@ -502,10 +497,6 @@ Recommended: WAV for best quality</pre>
             <p>All endpoints require a <code>session_id</code> parameter to maintain conversation context and model associations. Use consistent session IDs to continue conversations or reference trained models.</p>
         </div>
     </section>
-
-    <div class="navigation-hint">
-        Press 1-8 for slides • ← → for navigation
-    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -558,12 +549,13 @@ Recommended: WAV for best quality</pre>
             const text = element.textContent;
             
             navigator.clipboard.writeText(text).then(function() {
-                const originalText = button.textContent;
-                button.textContent = 'Copied!';
+                // Change to checkmark icon
+                button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
                 button.style.background = '#A8B084';
                 
                 setTimeout(function() {
-                    button.textContent = originalText;
+                    // Change back to copy icon
+                    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
                     button.style.background = '#C3CB9C';
                 }, 1000);
             }).catch(function(err) {
