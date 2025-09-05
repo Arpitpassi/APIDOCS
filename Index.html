@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astral Plane API Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F0F0F0;
+            color: #2c2c2c;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 55px;
+            font-weight: 700;
+            color: #C3CB9C;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #888888;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .overview {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px 32px;
+        }
+
+        h2 {
+            font-size: 34px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin: 32px 0 16px 0;
+        }
+
+        h3 {
+            font-size: 21px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin: 16px 0 12px 0;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin: 16px 0 8px 0;
+        }
+
+        .slide {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .slide:last-child {
+            border-bottom: none;
+        }
+
+        .slide-code {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .slide-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-text p {
+            margin: 12px 0;
+        }
+
+        .slide-text ul, .slide-text ol {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .slide-text li {
+            margin: 6px 0;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+
+        code {
+            background-color: rgba(195, 203, 156, 0.1);
+            color: #2c2c2c;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .code-block {
+            background-color: rgba(195, 203, 156, 0.1);
+            color: #2c2c2c;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 8px 0;
+            border-left: 4px solid #C3CB9C;
+        }
+
+        .code-block pre {
+            background: none;
+            padding: 0;
+            margin: 0;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .copy-button {
+            background: #C3CB9C;
+            color: #2c2c2c;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .copy-button:hover {
+            background: #A8B084;
+        }
+
+        .method {
+            background-color: #C3CB9C;
+            color: #2c2c2c;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin: 4px 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin: 0 0 6px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navigation-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(195, 203, 156, 0.9);
+            color: #2c2c2c;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                flex-direction: column;
+                min-height: auto;
+                gap: 20px;
+                padding: 24px 16px;
+            }
+            
+            .slide-text {
+                justify-content: flex-start;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 28px;
+                margin: 24px 0 12px 0;
+            }
+
+            .header {
+                padding: 24px 16px;
+            }
+
+            .overview {
+                padding: 0 16px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Astral Plane API Documentation</h1>
+        <p class="subtitle">Live Forever, Learn Forever: Personalized Agent</p>
+    </div>
+
+    <div class="overview">
+        <h2>Overview</h2>
+        <p>Astral Plane is an infrastructure platform that creates personalized AI agents through continuous learning. The system provides voice and text conversation capabilities with on-the-fly model fine-tuning, enabling agents that evolve and adapt to individual users over time.</p>
+    </div>
+
+    <!-- Slide 1: Speech to Text -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url1')">Copy</button></div>
+            <div class="code-block">
+                <pre id="url1">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~speech-to-text@1.0/transcribe/infer~wasi-nn@1.0?model-id=gemma&session_id=johncena --data-binary @audiofile.wav</pre>
+            </div>
+
+            <div class="section-title">Method: <span class="method">POST</span></div>
+
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request1')">Copy</button></div>
+            <div class="code-block">
+                <pre id="request1">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~speech-to-text@1.0/transcribe/infer~wasi-nn@1.0?model-id=gemma&session_id=johncena" \
+  --data-binary @1.wav</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Speech to Text → AI Response</h3>
+            <p>Converts audio input to text, processes it through AI, and chains to the next device.</p>
+            
+            <h4>Parameters:</h4>
+            <ul>
+                <li><code>model-id</code> (optional): AI model identifier</li>
+                <li><code>session_id</code> (required): Session identifier for conversation continuity</li>
+            </ul>
+
+            <p><strong>Input:</strong> Binary audio file (WAV/MP3)<br>
+            <strong>Output:</strong> AI response text with session context</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: Text to Speech -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url2')">Copy</button></div>
+            <div class="code-block">
+                <pre id="url2">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~text-to-speech@1.0/generate?session_id=johncena -d '{"result": "text content"}'</pre>
+            </div>
+
+            <div class="section-title">Method: <span class="method">POST</span></div>
+
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request2')">Copy</button></div>
+            <div class="code-block">
+                <pre id="request2">curl -X POST 'http://YOUR_SERVER_ADDRESS:YOUR_PORT/~text-to-speech@1.0/generate?session_id=johncena' \
+  -H "Content-Type: application/json" \
+  -d '{"result": "Hello! I understand what you need. How can I help you today?"}' \
+  --output response.wav</pre>
+            </div>
+
+            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input2')">Copy</button></div>
+            <div class="code-block">
+                <pre id="input2">{
+  "result": "Text to convert to speech"
+}</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Text to Speech Generation</h3>
+            <p>Generates audio from AI response text.</p>
+            
+            <h4>Parameters:</h4>
+            <ul>
+                <li><code>session_id</code> (required): Session identifier for voice consistency</li>
+            </ul>
+
+            <p><strong>Output:</strong> Binary audio file (WAV format)</p>
+        </div>
+    </section>
+
+    <!-- Slide 3: Start Conversation -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url3')">Copy</button></div>
+            <div class="code-block">
+                <pre id="url3">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~wasi-nn@1.0/infer?lora_id=my_training_session&session_id=user_123 -d '{"transcription": "your message"}'</pre>
+            </div>
+
+            <div class="section-title">Method: <span class="method">POST</span></div>
+
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request3')">Copy</button></div>
+            <div class="code-block">
+                <pre id="request3">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~wasi-nn@1.0/infer?lora_id=my_training_session&session_id=user_123" \
+  -H "Content-Type: application/json" \
+  -d '{"transcription": "who are you?"}'</pre>
+            </div>
+
+            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input3')">Copy</button></div>
+            <div class="code-block">
+                <pre id="input3">{
+  "transcription": "Your message or question here"
+}</pre>
+            </div>
+
+            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output3')">Copy</button></div>
+            <div class="code-block">
+                <pre id="output3">{
+  "result": "AI response text",
+  "session_id": "user_123",
+  "transcription": "Your original message"
+}</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Start Conversation</h3>
+            <p>Begin a text-based conversation with optional custom model.</p>
+            
+            <h4>Parameters:</h4>
+            <ul>
+                <li><code>lora_id</code> (optional): Custom fine-tuned model identifier</li>
+                <li><code>session_id</code> (required): Session identifier for conversation memory</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide 4: Train Custom Model -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url4')">Copy</button></div>
+            <div class="code-block">
+                <pre id="url4">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/train?session_id=my_training_session&num_epochs=10 -d @training_data.json</pre>
+            </div>
+
+            <div class="section-title">Method: <span class="method">POST</span></div>
+
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request4')">Copy</button></div>
+            <div class="code-block">
+                <pre id="request4">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/train?session_id=my_training_session&num_epochs=10" \
+  -H "Content-Type: application/json" \
+  -d @training_data.json</pre>
+            </div>
+
+            <div class="section-title">Input: <button class="copy-button" onclick="copyToClipboard(this, 'input4')">Copy</button></div>
+            <div class="code-block">
+                <pre id="input4">[
+  {
+    "input": "What's your favorite color?",
+    "output": "I really enjoy deep blues and emerald greens."
+  },
+  {
+    "input": "Tell me about yourself",
+    "output": "I'm an AI assistant trained to be helpful and conversational."
+  }
+]</pre>
+            </div>
+
+            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output4')">Copy</button></div>
+            <div class="code-block">
+                <pre id="output4">{
+  "status": "success",
+  "adapter_path": "runs/my_training_session/finetune_lora",
+  "session_id": "my_training_session"
+}</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Train Custom Model</h3>
+            <p>Train a personalized model using your conversation examples.</p>
+            
+            <h4>Parameters:</h4>
+            <ul>
+                <li><code>session_id</code> (required): Unique identifier for your custom model</li>
+                <li><code>num_epochs</code> (optional): Training intensity (default: varies by model)</li>
+            </ul>
+
+            <p><strong>Input:</strong> JSON file with conversation examples. The model learns to respond in your specified style and personality.</p>
+        </div>
+    </section>
+
+    <!-- Slide 5: Convert Model -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url5')">Copy</button></div>
+            <div class="code-block">
+                <pre id="url5">http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/convert</pre>
+            </div>
+
+            <div class="section-title">Method: <span class="method">POST</span></div>
+
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request5')">Copy</button></div>
+            <div class="code-block">
+                <pre id="request5">curl -X POST "http://YOUR_SERVER_ADDRESS:YOUR_PORT/~training@1.0/convert?session_id=my_training_session" \
+  -H "Content-Type: application/json"</pre>
+            </div>
+
+            <div class="section-title">Output: <button class="copy-button" onclick="copyToClipboard(this, 'output5')">Copy</button></div>
+            <div class="code-block">
+                <pre id="output5">{
+  "status": "success",
+  "gguf_path": "runs/my_training_session/lora_to_gguf/lora_adapter.gguf",
+  "session_id": "my_training_session"
+}</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Convert Model for Use</h3>
+            <p>Convert the trained model to optimized format for conversations.</p>
+            
+            <h4>Parameters:</h4>
+            <ul>
+                <li><code>session_id</code> (required): Session ID from the training step</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide 6: Download Model -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">URL: <button class="copy-button" onclick="copyToClipboard(this, 'url6')">Copy</button></div>
+            <div class="code-block">
+                <pre id="url6">http://YOUR_SERVER_ADDRESS:10000/~training@1.0/download</pre>
+            </div>
+
+            <div class="section-title">Method: <span class="method">POST</span></div>
+
+            <div class="section-title">Request: <button class="copy-button" onclick="copyToClipboard(this, 'request6')">Copy</button></div>
+            <div class="code-block">
+                <pre id="request6">curl -X POST "http://YOUR_SERVER_ADDRESS:10000/~training@1.0/download?session_id=my_training_session" \
+  --output my_custom_model.gguf</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Download Custom Model</h3>
+            <p>Download your trained model file for backup or sharing.</p>
+            
+            <h4>Parameters:</h4>
+            <ul>
+                <li><code>session_id</code> (required): Session ID of your trained model</li>
+            </ul>
+
+            <p><strong>Output:</strong> Binary model file (.gguf format)</p>
+        </div>
+    </section>
+
+    <!-- Data Formats Section -->
+    <section class="slide">
+        <div class="slide-code">
+            <div class="section-title">Audio Files: <button class="copy-button" onclick="copyToClipboard(this, 'audio')">Copy</button></div>
+            <div class="code-block">
+                <pre id="audio">Supported formats: WAV, MP3
+Recommended: WAV for best quality</pre>
+            </div>
+
+            <div class="section-title">Training Data Example: <button class="copy-button" onclick="copyToClipboard(this, 'training')">Copy</button></div>
+            <div class="code-block">
+                <pre id="training">[
+  {
+    "input": "User message example",
+    "output": "AI response example"
+  }
+]</pre>
+            </div>
+        </div>
+        <div class="slide-text">
+            <h3>Data Formats</h3>
+            
+            <h4>Audio Files</h4>
+            <ul>
+                <li><strong>Supported formats:</strong> WAV, MP3</li>
+                <li><strong>Recommended:</strong> WAV for best quality</li>
+            </ul>
+
+            <h4>Training Data</h4>
+            <p>Provide conversation examples as JSON array with input/output pairs. The model learns to respond in your specified style and personality.</p>
+
+            <h4>Session Management</h4>
+            <p>All endpoints require a <code>session_id</code> parameter to maintain conversation context and model associations. Use consistent session IDs to continue conversations or reference trained models.</p>
+        </div>
+    </section>
+
+    <div class="navigation-hint">
+        Press 1-8 for slides • ← → for navigation
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll(".slide");
+
+            // Keyboard navigation
+            document.addEventListener("keydown", function (event) {
+                const key = event.key;
+
+                // Handle number keys (1-8) for direct slide navigation
+                if (/^[1-8]$/.test(key)) {
+                    const slideIndex = parseInt(key) - 1; // Convert to 0-based index
+                    if (slideIndex < slides.length) {
+                        const targetSlide = slides[slideIndex];
+                        targetSlide.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                }
+
+                // Handle arrow keys for next/previous slide navigation
+                if (["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"].includes(key)) {
+                    event.preventDefault();
+
+                    // Find the current slide based on which slide is most visible in the viewport
+                    let currentIndex = 0;
+                    slides.forEach((slide, index) => {
+                        const rect = slide.getBoundingClientRect();
+                        if (rect.top >= -rect.height / 2 && rect.top <= window.innerHeight / 2) {
+                            currentIndex = index;
+                        }
+                    });
+
+                    // Determine the target slide index
+                    let targetIndex;
+                    if (key === "ArrowLeft" || key === "ArrowUp") {
+                        targetIndex = Math.max(0, currentIndex - 1);
+                    } else if (key === "ArrowRight" || key === "ArrowDown") {
+                        targetIndex = Math.min(slides.length - 1, currentIndex + 1);
+                    }
+
+                    // Scroll to the target slide
+                    const targetSlide = slides[targetIndex];
+                    targetSlide.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            });
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(button, elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#A8B084';
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = '#C3CB9C';
+                }, 1000);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
